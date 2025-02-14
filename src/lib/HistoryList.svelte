@@ -49,7 +49,7 @@
 </script>
 
 <div
-	class="flex h-full min-h-screen min-w-[285px] flex-col items-center overflow-y-auto border-white/30 bg-white p-4 pt-10 dark:border-l-2 dark:bg-slate-950"
+	class="flex h-full min-h-screen max-w-[270px] flex-col items-center overflow-y-auto border-white/30 bg-white p-4 pt-10 dark:border-l-2 dark:bg-slate-950"
 >
 	<h2 class=" mb-2 text-xl font-bold">History</h2>
 	{#if records.length > 0}
@@ -70,6 +70,8 @@
 			Clean History
 		</button>
 	{:else}
-		<p class="flex flex-wrap text-slate-200">You haven’t tracked any time yet.</p>
+		<p class="flex flex-wrap items-center justify-center text-center text-lg text-slate-900">
+			You haven’t tracked any time yet.
+		</p>
 	{/if}
 </div>
