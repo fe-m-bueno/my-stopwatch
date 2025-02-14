@@ -4,7 +4,6 @@
 
 	let isDark: boolean;
 
-	// 🔹 Alterna entre "light" e "dark"
 	function toggleTheme() {
 		isDark = !isDark;
 		document.documentElement.setAttribute('data-mode', isDark ? 'dark' : 'light');
@@ -13,7 +12,6 @@
 		document.documentElement.classList.toggle('dark', isDark);
 	}
 
-	// 🚀 Carregar o tema salvo no `localStorage` quando o componente é montado
 	onMount(() => {
 		const savedTheme = localStorage.getItem('theme') || 'light';
 		isDark = savedTheme === 'dark';
@@ -25,8 +23,8 @@
 <button
 	onclick={toggleTheme}
 	class="relative flex h-8 w-16 items-center rounded-full border border-gray-200 bg-gray-100 p-1 transition-colors dark:border-gray-400 dark:bg-[#242424]"
+	aria-label="Theme Toggle"
 >
-	<!-- 🔥 Botão deslizante -->
 	<div
 		class="absolute h-6 w-6 transform rounded-full bg-white shadow-md transition-transform duration-300 dark:bg-slate-950"
 		class:translate-x-0={!isDark}

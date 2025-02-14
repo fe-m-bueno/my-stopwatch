@@ -1,11 +1,9 @@
 <script lang="ts">
-	// Estados do cronômetro
-	let time = $state<number>(0);
+	let time = $state<number>(283);
 	let isRunning = $state<boolean>(false);
 	let showModal = $state<boolean>(false);
 	let intervalId: ReturnType<typeof setInterval> | null = null;
 
-	// Funções do cronômetro
 	function start() {
 		if (!isRunning) {
 			isRunning = true;
@@ -48,15 +46,14 @@
 		return `${hours.toString().padStart(2, '0')}:${minutes.toString().padStart(2, '0')}:${seconds.toString().padStart(2, '0')}`;
 	});
 
-	// Atalhos de teclado
 	$effect(() => {
 		function handleKeydown(event: KeyboardEvent) {
 			if (event.code === 'Space') {
 				event.preventDefault();
 				toggle();
-			} else if (event.key.toLowerCase() === 'p') {
+			} else if (event.key.toLowerCase() === 's') {
 				reset();
-			} else if (event.key.toLowerCase() === 'm' || (event.code === 'Escape' && showModal)) {
+			} else if (event.key.toLowerCase() === '?' || (event.code === 'Escape' && showModal)) {
 				toggleModal();
 			}
 		}
@@ -114,13 +111,13 @@
 	<div class="flex flex-row items-center space-x-4">
 		<button
 			onclick={toggle}
-			class="bg-secondary-500 hover:bg-secondary-600 dark:bg-secondary-700 dark:hover:bg-secondary-600 cursor-pointer rounded px-4 py-2 text-white transition"
+			class="cursor-pointer rounded bg-secondary-600 px-4 py-2 text-white transition hover:bg-secondary-700 dark:bg-secondary-800 dark:hover:bg-secondary-700"
 		>
 			{buttonText}
 		</button>
 		<button
 			onclick={reset}
-			class={`rounded  px-4 py-2 text-white transition ${isRunning ? 'bg-danger-500 hover:bg-danger-600 dark:bg-danger-700 dark:hover:bg-danger-600 cursor-pointer transition' : 'cursor-not-allowed bg-gray-500 transition dark:bg-gray-700'}`}
+			class={`rounded  px-4 py-2 text-white transition ${isRunning ? 'cursor-pointer bg-danger-600 transition hover:bg-danger-700 dark:bg-danger-800 dark:hover:bg-danger-700' : 'cursor-not-allowed bg-gray-500 transition dark:bg-gray-700'}`}
 			disabled={!isRunning}>Stop</button
 		>
 	</div>
@@ -138,7 +135,7 @@
 <!-- Modal -->
 {#if showModal}
 	<div
-		class="fixed inset-0 z-10 flex items-center justify-center bg-black/30"
+		class="fixed inset-0 z-10 flex items-center justify-center bg-white/30"
 		onclick={closeModal}
 		onkeydown={handleKey}
 		tabindex="-1"
@@ -147,20 +144,49 @@
 		aria-labelledby="modal-title"
 	>
 		<div
-			class="flex w-full max-w-md flex-col items-center justify-center rounded-2xl bg-white p-6 shadow-lg dark:bg-[#343a46]"
+			class="flex w-full max-w-md flex-col items-center justify-center rounded-2xl bg-white p-6 shadow-lg dark:bg-slate-950"
 		>
 			<h2 class="mb-4 text-2xl font-bold">Shortcuts</h2>
-			<ul class="list-disc pl-5">
-				<li><strong>Space:</strong> Start/pause the timer</li>
-				<li><strong>P:</strong> Stop the timer</li>
-				<li><strong>M/esc:</strong> Open/close shortcuts window</li>
-				<li><strong>C:</strong> Clean history</li>
+			<ul class="p-1">
+				<li class="mb-5">
+					<span
+						class="mr-3 rounded-md border border-gray-200 bg-gray-100 px-2 py-2 font-mono shadow dark:bg-gray-900 dark:shadow-white"
+						>Space</span
+					> Start/pause the timer
+				</li>
+				<li class="mb-5">
+					<span
+						class="mr-3 rounded-md border border-gray-200 bg-gray-100 px-2 py-2 font-mono shadow dark:bg-gray-900 dark:shadow-white"
+						>s</span
+					> Stop the timer
+				</li>
+				<li class="mb-5">
+					<span
+						class="mr-1 rounded-md border border-gray-200 bg-gray-100 px-2 py-2 font-mono shadow dark:bg-gray-900 dark:shadow-white"
+						>?</span
+					>
+
+					Open/close shortcuts window
+				</li>
+				<li class="mb-5">
+					<span
+						class="mr-3 rounded-md border border-gray-200 bg-gray-100 px-2 py-2 font-mono shadow dark:bg-gray-900 dark:shadow-white"
+						>Esc</span
+					> Close shortcuts window
+				</li>
+
+				<li class="mb-5">
+					<span
+						class="mr-3 rounded-md border border-gray-200 bg-gray-100 px-2 py-2 font-mono shadow dark:bg-gray-900 dark:shadow-white"
+						>c</span
+					> Clean history
+				</li>
 			</ul>
 			<button
 				onclick={toggleModal}
-				class="bg-danger-500 hover:bg-danger-600 dark:bg-danger-700 dark:hover:bg-danger-600 mt-4 rounded px-4 py-2 text-white transition"
+				class="mt-4 rounded bg-danger-500 px-4 py-2 text-white transition hover:bg-danger-600 dark:bg-danger-700 dark:hover:bg-danger-600"
 			>
-				Fechar
+				Close
 			</button>
 		</div>
 	</div>

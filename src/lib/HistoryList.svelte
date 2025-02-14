@@ -57,6 +57,7 @@
 			{#each records as record, index}
 				<li
 					class="flex items-center justify-between gap-8 rounded bg-gray-100 px-4 py-2 dark:bg-gray-800"
+					role="listitem"
 				>
 					<span class="text-blue-600 dark:text-blue-200">{formatTime(record.time)}</span>
 					<span class="text-sm text-gray-700 dark:text-gray-200">{record.date}</span>
@@ -65,7 +66,8 @@
 		</ul>
 		<button
 			onclick={clearRecords}
-			class="bg-danger-500 hover:bg-danger-600 dark:bg-danger-700 dark:hover:bg-danger-600 mt-4 cursor-pointer rounded px-4 py-2 text-white transition"
+			class="mt-4 cursor-pointer rounded bg-danger-600 px-4 py-2 text-white transition hover:bg-danger-700 dark:bg-danger-800 dark:hover:bg-danger-700"
+			aria-labelledby="theme-toggle"
 		>
 			Clean History
 		</button>

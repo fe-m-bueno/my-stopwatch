@@ -11,6 +11,23 @@
 	}
 </script>
 
+<svelte:head>
+	<title>Stopwatch - Track your time easily</title>
+	<meta
+		name="description"
+		content="A simple and accurate stopwatch to track your time. Start, pause, stop and log!"
+	/>
+	<meta property="og:title" content="Stopwatch - Track your time easily" />
+	<meta
+		property="og:description"
+		content="An intuitive and feature-rich stopwatch with time tracking and history logs."
+	/>
+	<meta property="og:image" content="/stopwatch-preview.png" />
+	<meta property="og:url" content="https://my-stopwatch-hazel.vercel.app/" />
+	<meta property="og:type" content="website" />
+	<link rel="icon" type="image/png" href="/favicon.png" />
+</svelte:head>
+
 <main class="bg-test flex min-h-screen items-center justify-center">
 	<div class="fixed left-12 top-8">
 		<ThemeToggle />
@@ -21,7 +38,7 @@
 	{#if !showHistory}
 		<button
 			onclick={toggleHistory}
-			class="fixed right-12 top-8 z-10 rounded-full bg-gray-100 p-2 shadow-md lg:hidden dark:bg-[#242424]"
+			class="fixed right-12 top-8 z-10 rounded-full bg-gray-100 p-2 shadow-md dark:bg-[#242424] lg:hidden"
 		>
 			<History size={20} />
 		</button>
