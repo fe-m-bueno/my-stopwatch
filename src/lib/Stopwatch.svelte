@@ -126,7 +126,7 @@
 	</div>
 </div>
 
-<div class="fixed bottom-8 right-72 z-10 hidden lg:block">
+<div class="fixed bottom-8 right-[19rem] z-10 hidden lg:block">
 	<button
 		onclick={toggleModal}
 		class="flex h-12 w-12 cursor-pointer items-center justify-center rounded-full bg-slate-100 px-2 py-2 text-black shadow-md transition hover:bg-slate-300 dark:bg-gray-400 dark:hover:bg-gray-500"

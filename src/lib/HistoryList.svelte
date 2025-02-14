@@ -49,9 +49,9 @@
 </script>
 
 <div
-	class="flex h-full min-h-screen max-w-[270px] flex-col items-center overflow-y-auto border-white/30 bg-white p-4 pt-10 dark:border-l-2 dark:bg-slate-950"
+	class="flex h-full min-h-screen flex-col items-center overflow-y-auto border-white/30 bg-white p-4 pt-10 dark:border-l-2 dark:bg-slate-950"
 >
-	<h2 class=" mb-2 text-xl font-bold">History</h2>
+	<h2 class="mb-2 text-xl font-bold">History</h2>
 	{#if records.length > 0}
 		<ul class="space-y-2">
 			{#each records as record, index}
@@ -71,7 +71,7 @@
 		</button>
 	{:else}
 		<p
-			class="flex flex-wrap items-center justify-center text-center text-lg text-slate-900 dark:text-white"
+			class="text-md flex flex-wrap items-center justify-center text-center text-slate-900 dark:text-white"
 		>
 			You haven’t tracked any time yet.
 		</p>

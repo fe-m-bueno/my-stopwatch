@@ -21,7 +21,7 @@
 	{#if !showHistory}
 		<button
 			onclick={toggleHistory}
-			class="fixed right-12 top-8 z-10 rounded-full bg-gray-100 p-2 shadow-md md:hidden dark:bg-[#242424]"
+			class="fixed right-12 top-8 z-10 rounded-full bg-gray-100 p-2 shadow-md lg:hidden dark:bg-[#242424]"
 		>
 			<History size={20} />
 		</button>
@@ -29,7 +29,7 @@
 
 	<div
 		class="fixed inset-y-0 right-0 z-10 w-full transform bg-gray-200 shadow-lg transition-transform duration-300 dark:bg-slate-950
-      {showHistory ? 'translate-x-0' : 'translate-x-full'} md:hidden"
+      {showHistory ? 'translate-x-0' : 'translate-x-full'} lg:hidden"
 	>
 		<button onclick={toggleHistory} class="fixed right-12 top-8 p-2">
 			<X size={20} />
