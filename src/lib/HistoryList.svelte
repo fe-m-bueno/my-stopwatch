@@ -70,7 +70,9 @@
 			Clean History
 		</button>
 	{:else}
-		<p class="flex flex-wrap items-center justify-center text-center text-lg text-slate-900">
+		<p
+			class="flex flex-wrap items-center justify-center text-center text-lg text-slate-900 dark:text-white"
+		>
 			You haven’t tracked any time yet.
 		</p>
 	{/if}
