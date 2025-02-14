@@ -1,5 +1,5 @@
 <script lang="ts">
-	let time = $state<number>(283);
+	let time = $state<number>(0);
 	let isRunning = $state<boolean>(false);
 	let showModal = $state<boolean>(false);
 	let intervalId: ReturnType<typeof setInterval> | null = null;
